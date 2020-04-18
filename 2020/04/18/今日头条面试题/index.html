@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+
+
+<html lang="zh">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    今日头条面试题 |  simplett
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-今日头条面试题" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  今日头条面试题
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/18/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E9%9D%A2%E8%AF%95%E9%A2%98/" class="article-date">
+  <time datetime="2020-04-18T14:27:12.387Z" itemprop="datePublished">2020-04-18</time>
+</a>
+      
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">4.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">16 min</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2 id="题目整理"><a href="#题目整理" class="headerlink" title="题目整理"></a>题目整理</h2><ol>
+<li>amd、cmd 规范</li>
+<li>vue-router 原理</li>
+<li>url 构成</li>
+<li>解析一个 url，包括 hash 值</li>
+<li><code>==</code>和<code>===</code>的区别</li>
+<li>cookie 和 session 区别</li>
+<li>cookie 有哪些安全的设置</li>
+<li>讲讲同源策略</li>
+<li>css 盒模型</li>
+<li>box-sizing</li>
+<li>编程题，写一个 url 解析函数，解析出查询参数</li>
+<li>编程题，有一个 versions 是一个项目的版本号列表，因多人维护，不规则 var versions = [‘1.45.0’,’1.5’,’6’,‘3.3.3.3.3.3.3’]，要求从小到大排序，注意‘1.45’比‘1.5’大，var sorted = [‘1.5’,‘1.45.0’,‘3.3.3.3.3.3.3’,‘6’]</li>
+<li>实现两列布局，第一列固定，第二列宽度自适应</li>
+<li>用 css 实现三角形、</li>
+<li>原生 ajax,jsonp 实现</li>
+<li>跨域请求方式有哪些，如何实现</li>
+<li>元素相对浏览器的位置拖拽事件</li>
+<li>从事件角度出发，说明点击一个 a 标签，控制器输出其 href 值的具体过程</li>
+<li>什么是事件代理</li>
+<li>事件冒泡、捕获</li>
+<li>编程，获取一个二叉树的最大深度</li>
+<li>写一个对象的事件函数，考察 es5,es6 区别</li>
+<li>进程，线程，进程间通信</li>
+<li>计算机基础，操作系统</li>
+<li>笔试有 css/js/算法。面试时拓展到：web 安全、算法、es6、promise。前后一个半小时</li>
+<li>用 css 写一个宽高自适应的正方形，并说出原理</li>
+<li>生命周期、vue 运行机制，快速排序</li>
+<li>使用至少两种方式实现纯 css 的自适应搜索框</li>
+<li>什么是闭包</li>
+<li>同源标签之间如何通信</li>
+<li>用 css 画一个三角形</li>
+<li>window.onload 和 document.onload 是否是同时执行，为什么</li>
+<li>cors 请求和普通的 http 请求有什么区别</li>
+<li>使用数组的 reduce 方法实现数组的 map 方法</li>
+<li>实现一个 rangle 函数</li>
+<li>请用至少两种方法判断一个对象是否是数组，如何将非数组转化为数组</li>
+<li>作用域</li>
+<li>前端安全，网站安全</li>
+<li>闭包、类、继承</li>
+<li>vue 框架视图更新原理</li>
+<li>算法问题，比如链表结构</li>
+<li>网络问题，https 是什么，于 HTTP 区别</li>
+<li>viewport 相关设置</li>
+<li>cookie 和 localstorage 不同</li>
+<li>严格模式和混杂模式</li>
+<li>等比例布局，BFC，居中布局，盒子模型，jQuery 选择器，bind，argument，事件委托怎么写</li>
+<li>数组去重，跨域，ajax，MVVM 框架</li>
+<li>二叉树，用 js 写。用 css 实现一个正方形</li>
+<li>虚拟 DOM、DIFF 算法原理，js 实现深拷贝，计算机基础，进程间通信，TCP 协议 3 次握手 4 次挥手过程，get 和 post 区别，TCP 和 UDP 区别</li>
+<li>for…in 和 for…of 的区别</li>
+<li>同源不同标签之间的通信</li>
+<li>实现节流去抖函数，bind 函数</li>
+<li>虚拟 DOM 的 实现，为何比传统 DOM 操作快，个人项目的细节</li>
+<li>原理比较多：ajax 原理，HTTP 原理，缓存原理。项目经验</li>
+<li>如何实现一个表单单选：性别：○ 男 ○ 女，提交按钮。男为默认勾选，点击性别时 focus 到男女选项上</li>
+<li>提交的两种实现：input + type = submit,button + 点击事件</li>
+<li>点击事件具体 js 实现，jQuery 对应的 api</li>
+<li>get 和 post 对比</li>
+<li>不同浏览器的事件机制</li>
+<li>浮动元素如何垂直居中</li>
+<li>css 如何实现上下居中，包括内部文本垂直居中和整个块元素居中</li>
+<li>js 跨域及解决方法</li>
+<li>浏览器不同 tab 之间通信</li>
+<li>vue 中使用 flex，原理</li>
+<li>双向数据绑定原理</li>
+<li>ajax 和 jsonp 区别</li>
+<li>事件冒泡及应用</li>
+<li>对象原型，call apply bind 区别</li>
+<li>如何分 3 列等宽度显示</li>
+<li>flex 属性都代表什么意思</li>
+<li>优化 js 代码，给每个 a 元素都添加事件应用</li>
+<li>很多协议方面，cdn, cookie, web storage, css3 动画</li>
+<li>写一个扁平化对象的算法</li>
+<li>自适应布局，等高布局，xss 和 csrf 攻击，函数节流，前端性能优化</li>
+<li>问算法题的思路</li>
+<li>淘宝等网站的倒计时功能如何实现</li>
+<li>用纯 css 实现当鼠标移到 div 方块时的高亮效果</li>
+<li>手写一个闭包</li>
+<li>手写一个 parseInt 函数</li>
+<li>重绘和回流的 区别</li>
+<li>视图属性</li>
+<li>css 标准盒子（box-sizing）</li>
+<li>清楚浮动</li>
+<li>两列布局，右侧定宽 200px，左侧随屏幕自动填充宽度</li>
+<li>垂直水平居中</li>
+<li>addEventListener()有几个参数，是什么</li>
+<li>typeof 的类型，举例说是什么类型</li>
+<li>function.prototype.bind/call/apply 的用法及区别</li>
+<li>vue 的原理，setter 和 getter 相关知识</li>
+<li>mvc/mvvm</li>
+<li>数组中的几个替换/遍历方法</li>
+<li>Http 缓存优缺点</li>
+<li>单页应用的优缺点</li>
+<li>浏览器缓存优缺点</li>
+<li>介绍 h5 的两个浏览器缓存</li>
+<li>事件代理是什么？事件代理中 target 和 event 细节</li>
+<li>手写正则</li>
+<li>随手给一个代码，说出结果</li>
+<li>介绍堆栈和队列如何用堆栈实现队列</li>
+<li>跨域你是怎么解决的 jsonp 有什么缺点</li>
+<li>React 的生命周期：componentWillReceiveProps  componentShouldUpdate 区别，componentShouldUpdate 会做 setState 操作吗</li>
+<li>React 之间组件通信的方式两个兄弟组件之间的通信方式</li>
+<li>将 arr 平铺成如同[1, 2, 3, 4, 5, 6, 7, 8]这样的形式    var arr = [[1,2,3], [4,5], [6, [7, 8]]]</li>
+<li>react 生命周期</li>
+<li>lru 算法</li>
+<li>函数柯里化，实现 sum(1,2)和 sumn(1)(2)</li>
+<li>this 指向，改变 this 的几种方法——call、apply、bind，用 apply 实现 bind 函数</li>
+<li>setTimeout、promse 等输出顺序</li>
+<li>判断一个单项链表是否有环</li>
+<li>写个继承，原型链的细节</li>
+<li>如何判断一个对象是 Array 类型，typeof 和 instanceo of 区别，instance of 是否可以判断值类型？</li>
+<li>offset，手写一个判断边界距离的代码</li>
+<li>数组，reduce, map, foreach，用 reduce 去实现 map 方法</li>
+<li>ajax，手写 js 原生实现 ajax 代码，除了 ajax，js 还有哪些实现异步？</li>
+<li>对 vue 了解多少，生命周期，双向绑定，观察者模式，问的很详细</li>
+<li>手写快速排序算法</li>
+<li>tcpip 三次握手，四次挥手</li>
+<li>项目实现过程</li>
+<li>平时看些什么书，对部门了解多少？</li>
+<li>问了之前的项目经历，平时的学习方式，GitHub 上看过什么代码，有什么比较深刻的印象</li>
+<li>react 相关，数据绑定，redux，父子组件的状态传递</li>
+<li>浏览器从输入 url 到页面加载完成这整个流程是怎样的 （要详细说。TCP、HTTP 响应、DNS 等等等）TCP 三次握手</li>
+<li>算法：1）二叉树分层遍历，输出层数和该层节点值；</li>
+<li>算法：2）把一块区域矩阵化为 2 维矩阵，m 行 n 列，矩阵中元素只有 0 或 1 两个值，0 表示水，1 表示陆地，相邻的陆地可以连接成一块更大的陆地，问这 mxn 的矩阵中共有几块陆地</li>
+<li>算法：3）有一份系统的日志文件，每行记录都有 uid(用户 id),login_time(登入时间),logout_time(登出时间)三个字段，问系统在线峰值人数，及峰值持续的最长时间不知道是不是算法题都这种难度。</li>
+<li>写了一道简单的编程题，编程题需要注意细节。</li>
+<li>最看重 JS 算法，要手写算法</li>
+<li>链式操作的实现</li>
+<li>各种排序的实现</li>
+<li>给定单链表，奇数位升序，偶数位降序，现要求输出全局升序，不用数组。</li>
+<li>进程如何通信</li>
+<li>进程和线程的区别</li>
+<li>http 属于哪层的协议</li>
+<li>解释下 https 的详细过程</li>
+<li>Css 双列布局的几种实现方式</li>
+<li>用户态和内核态表示什么</li>
+<li>Vue 里面是如何监听属性变化的 ，原生 js 如何监听属性变化</li>
+<li>Node 如何解析 post 请求。</li>
+<li>TCP 建立的过程</li>
+<li>计算机网络相关知识</li>
+<li>对面向对象编程的理解</li>
+<li>做过项目中的一些地方是怎样实现的</li>
+<li>函数设计，复杂度分析</li>
+<li>二面只问了经典的倒水问题，现场给出的是搜索树算法</li>
+<li>三面主要考察了异步相关的问题，一个深拷贝算法设计</li>
+<li>react diff（这个是我自己的技术栈）</li>
+<li>webpack</li>
+<li>策略模式</li>
+<li>http 和 https 区别、HTTP 缓存、HTTP 状态码（301 302）</li>
+<li>[] == false ， ![]</li>
+<li>代码：反转链表</li>
+<li>dom css render 过程</li>
+<li>TCP 如何保证传输</li>
+<li>DNS 迭代查询和递归查询</li>
+<li>HTTP 长连接</li>
+<li>进程和线程</li>
+<li>堆和栈（数组和链表是怎么存的）</li>
+<li>代码：如何找到两个单向链表中结合的节点</li>
+<li>draftjs 定制相关问题，你认为 draftjs 与其他富文本编辑器的区别是什么，有什么优势 要详细了解一下</li>
+<li>鼠标操作的问题</li>
+<li>HTTP 请求 header 和请求体有哪些？</li>
+<li>DOM 树是怎么构建的？</li>
+<li>重绘重排之后会发生什么（composite 不是很理解）</li>
+<li>js 单线程 eventloop</li>
+<li>如何递归构建 dom 树（代码）</li>
+<li>进程和线程的区别是什么</li>
+<li>c 和 c++文件，从源文件到机器语言之间经历了什么</li>
+<li>扑克牌问题我手中有一堆扑克牌， 但是观众不知道它的顺序。第一步， 我从牌顶拿出一张牌， 放到桌子上。第二步， 我从牌顶再拿一张牌， 放在手上牌的底部。第三步， 重复第一步、第二步的操作， 直到我手中所有的牌都放到了桌子上。最后， 观众可以看到桌子上牌的顺序是：(牌底部）1,2,3,4,5,6,7,8,9,10,11,12,13(牌顶部）请问 我刚开始拿在手里的牌的顺序是什么？</li>
+<li>（项目介绍，一些 draftjs 的定制详情） draftjs 是用什么存数据库的（JSON 格式）</li>
+<li>html+css 实现垂直居中的一个方块，其高度为宽度的一半（padding）</li>
+<li>position relative 和 absolute 的区别</li>
+<li>算法题：蛇形输出一个非完全二叉树</li>
+<li>js 内存模型</li>
+<li>箭头函数和普通函数的区别</li>
+<li>promise 中，then 返回的对象也是一个 promise，如果 then 中 return 一个 promise 对象的话直接返回这个 promsie，如果 return 的不是 promise 对象，会被包装成 promise 对象再返回（promise 要再看看）</li>
+<li>原型链</li>
+<li>继承</li>
+<li>Object 的原型</li>
+<li>jsonp 跨域</li>
+<li>mvc 模式，mvvm 模式</li>
+<li>h5 的新特性</li>
+<li>video 与 audio 标签，有没有用过这两个做过 demo 通过 js 来控制的？ 两个标签具体的特性，触发的事件？</li>
+<li>canvas 绘制位图如何导出？</li>
+<li>水平垂直居中</li>
+<li>三栏布局、两栏布局 左面固定宽高，右面自适应</li>
+<li>网络安全 xss csrf 如何防范？</li>
+<li>nodejs 的 stream 与 buffer</li>
+<li>vue-router 的实现方式，如果前端 hash 值改变了，如果通知数据层？</li>
+<li>http 的缓存   ，说一下 http 缓存？    http 缓存头部简述？    cache-control？</li>
+<li>http 的（nginx）服务器可以直接升级到 https 吗？  29. http1.0 短连接 可以实现长链接吗？</li>
+<li>了解过 vue 源码吗？ 讲讲</li>
+<li>你平时生活中遇到过手机页面被其他网站劫持吗？（从 dns 解析层面被劫持）</li>
+<li>编程：reduce 扩展</li>
+<li>编程：给你 aaaabbbcerr 字符串，如何找到第一个重复的字符？</li>
+<li>如何判断一个数组</li>
+<li>深拷贝，浅拷贝？     有一种简单的浅拷贝方式？知道吗？    （Object.assign）</li>
+<li>prototype 与<code>__proto__</code>的区别？</li>
+<li>栅格布局 ，用 javascript 的函数模拟栅格布局</li>
+<li>git 命令同时合并多个分支 git reabse -i origin/…</li>
+<li>http 缓存、强缓存</li>
+<li>跨域、jsonp 原理、同源</li>
+<li>组件的作用</li>
+<li>手写 mvvm 实现</li>
+<li>继承、去重、深拷贝、堆栈</li>
+<li>vue 生命周期</li>
+<li>编程：返回数组最大差值、返回出现次数最多字符</li>
+<li>less，sass</li>
+<li>webpack 插件和 Loader 的区别</li>
+<li>动态规划</li>
+<li>写了个 jquery 移动 div</li>
+<li>promise 原理</li>
+<li>vue 和 react 区别</li>
+<li>http 和 https 区别</li>
+<li>但文件应用和多文件应用的区别</li>
+<li>移动端怎么适配得到真正的 1px</li>
+<li>随手写一个布局</li>
+<li>网站优化</li>
+<li>css 单行文本溢出，多行文本溢出</li>
+<li>css 布局间距塌陷</li>
+<li>事件循环</li>
+<li>经典的反向代理、负载均衡和流量控制</li>
+<li>算法：ksum</li>
+<li>考察的也是具体问题解决思路。</li>
+<li>当流量过大时，应该如何处理？应该在应用层处理还是在 Nginx 代理层处理。</li>
+<li>一上来先写一段 html，具体是 input+button 在一行表示，想考自适应</li>
+<li>快速排序算法</li>
+<li>OSI 模型，HTTP 协议，TCP 协议，操作系统进程和线程</li>
+<li>编译原理</li>
+<li>css 盒模型，overflow，positIon，css3 动画</li>
+<li>js 判断字符串类型</li>
+<li>原型继承的写法</li>
+<li>jQuery 里的事件代理的原理和写法</li>
+<li>react 和 redux 的使用和原理</li>
+<li>函数式编程</li>
+<li>react hooks</li>
+<li>跨域</li>
+<li>http1.0 ,1.1,2.0 的区别；</li>
+<li>Object.defineProperty()的缺点；</li>
+<li>css 实现 4:3 的块元素；</li>
+<li>post content-type 类型；</li>
+<li>vue 项目需要注意什么，可以优化的地方；</li>
+<li>vue 的 computed 实现原理；</li>
+<li>一道异步代码题，说出打印顺序；</li>
+<li>三个 url 同时请求，要求按顺序打印结果；</li>
+<li>css 写个无限旋转动画；</li>
+<li>算法： 一亿条数据中选出 1000 个最大的（排序相关）。</li>
+<li>viewport 的各个属性的作用 ，还有什么方式显示控制用户不可缩放，我回答用 js 监听屏幕宽度变化；</li>
+<li>弹出层你会如何设计；</li>
+<li>基础 css 垂直水平居中；</li>
+<li>透明度问题；</li>
+<li>点透问题；</li>
+<li>http 缓存机制；</li>
+<li>五星好评点几颗星几颗星亮；</li>
+<li>实现查询字符串出现最多字符的功能(手写代码；</li>
+<li>三次握手四次挥手；</li>
+<li>tcp 如何保证有效传输；</li>
+<li>https 具体流程；</li>
+<li>进程线程，并发并行；</li>
+<li>跨域，实现 jsonp；</li>
+<li>网络攻防 xss；</li>
+<li>cookie 与 session；</li>
+<li>vue 有没实现敏感字符过滤，可以用哪个标签来变为未过滤；</li>
+<li>一段 js 代码，判断哪个先输出；</li>
+<li>闭包；</li>
+<li>深克隆问题；</li>
+<li>vue 的双向数据绑定原理</li>
+<li>this 指向问题，用了箭头函数跟 call，然后让写 call 函数的代码；</li>
+<li>第二个问题是栈，一秒输出 1，二秒输出 3，四秒输出 2；</li>
+<li>第三个是 vue 项目里用到的 rem</li>
+<li>我怎么学习之类的问题</li>
+<li>封装一个类型鉴定函数</li>
+<li>事件轮训机制</li>
+<li>浏览器渲染原理</li>
+<li>题一完成一个点击锚点实现动画滑动。题二九宫格布局，题一我用 jq 的动画做的。面试官问我 jq 动画底层怎么实现的，自己用原生 JS 怎么做。题二我有两种方式，基础 css 和 flex。面试官问我用 css grid 会不会。</li>
+<li>vue diff 详细算法，框架里面的组件封装原理</li>
+<li>Linux 命令、Git 命令</li>
+<li>react 实现原理，diff 算法实现机制，redux 实现与数据流向</li>
+<li>vue 设计的核心原理(主要是虚拟 dom 的实现，渲染机制的实现，双向数据监听，模板引擎的具体实现)。</li>
+<li>node 问了通信机制，内存优化，v8 的垃圾回收（new space 和 old space 的算法实现原理是什么）。</li>
+<li>项目工程化，也就是 webpack，loader 实现机制和原理，项目优化，如何加快打包速度，如何做到 tree shaking。</li>
+<li>手写一个发布者订阅者实现。</li>
+<li>设计模式会哪些，说的设计模式在工作中怎么用的，都解决了什么问题，为什么要这么用，可否继续优化。</li>
+<li>聊了我做的一些模块，发布的 npm 包，一些程序设计思想。</li>
+<li>聊了一些前端测试，前沿技术等，重点聊了一下工具链模块开发。</li>
+<li>node 问了通信机制，内存优化，v8 的垃圾回收（new space 和 old space 的算法实现原理是什么）</li>
+<li>项目工程化，也就是 webpack，loader 实现机制和原理，项目优化，如何加快打包速度，如何做到 tree shaking。</li>
+<li>最后手写一个发布者订阅者实现。</li>
+<li>工具链模块开发</li>
+<li></li>
+</ol>
+<h2 id="老码农的一次头条面试记录"><a href="#老码农的一次头条面试记录" class="headerlink" title="老码农的一次头条面试记录"></a>老码农的一次头条面试记录</h2><p>笔试：</p>
+<ol>
+<li>利用 html css 编写样式，div 垂直 body 居中、div 内的 text 垂直居中，div 高度等于 body 宽度的一半（第一题就难住我了，充分暴露了我 css 功底极差的问题，跪，但终究还是写了点）</li>
+<li>第二题判断 if([] == false) {} , if({} == false) {} , if([]) {} 不会，跪</li>
+<li>利用宏任务，微任务的知识点判断程序输出（easy ok)</li>
+<li>bind 函数实现(ok)</li>
+<li>trottle 函数实现（ok， 可以用任务队列也可以只维护一个 function， 我用的队列）</li>
+<li>给定一个不含重复数字的数组 arr,指定个数 n,目标和 sum,判断是否含有由 n 个不同数字相加得到 sum 的情况（ok, leetcode 40 变种， 数字不得重复使用） 。笔试大概用了 30 分钟</li>
+</ol>
+<p>一面</p>
+<ol>
+<li>二叉树路径总和（leetcode 112)</li>
+<li>function request(urls, maxNumber, callback) 要求编写函数实现，根据 urls 数组内的 url 地址进行并发网络请求，最大并发数 maxNumber,当所有请求完毕后调用 callback 函数(已知请求网络的方法可以使用 fetch api)</li>
+</ol>
+<p>二面</p>
+<ol>
+<li>介绍下项目前端架构、项目难点 。简单介绍下，面试官很感兴趣，讲了大概有三十分钟</li>
+<li>react 如何进行性能优化 。function component + redux、immutable、pure component , shouldComponentUpdate</li>
+<li>https 握手机制 。不太懂</li>
+<li>CDN 原理 。cache、负载均衡、资源同步</li>
+<li>CDN 获取最近节点资源的算法是什么 。不懂</li>
+<li>requestAnimationFrame 和 setTimeout 、setInterval 的关系 。都可以用作动画 requestAnimationFrame 还可以埋点监测应用卡顿</li>
+<li>react fiber 了解多少 。Vritual DOM &amp; FiberNode 利用调度器分批次在不同的 tick 内渲染 (答的不好)</li>
+<li>你以前做过性能优化方面的开发，介绍下 。通过探针抓取 performance 数据，判断资源请求、白屏、首屏时间、页面卡顿，以及编写代码抓取页面错误、慢加载、代理用户事件进行行为分析等等。</li>
+<li>sum(100, 200)(300)(…)…(…)() curring 化实现 。写代码，简单</li>
+</ol>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        Donate
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>Copyright： </strong>
+              Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/18/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E9%9D%A2%E8%AF%95%E9%A2%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/04/18/egg-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">egg-使用教程</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'monsterid',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2020
+        <i class="ri-heart-fill heart_icon"></i> 钱开致
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="simplett"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="http://shenyu-vip.lofter.com" target="_blank" rel="noopener">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+
+<!-- 复制 -->
+
+  
+<link rel="stylesheet" href="/css/clipboard.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+    
+  </div>
+</body>
+
+</html>
