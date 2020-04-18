@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+
+
+<html lang="zh">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+     simplett
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="page-" class="article article-type-page" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>安装 egg.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">全局切换镜像：</span><br><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>我们推荐直接使用脚手架，只需几条简单指令，即可快速生成项目（<code>npm &gt;=6.1.0</code>）:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir egg-example &amp;&amp; cd egg-example</span><br><span class="line">npm init egg --type&#x3D;simple --registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line">npm i</span><br></pre></td></tr></table></figure>
+
+<p>启动项目:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br><span class="line">open http:&#x2F;&#x2F;localhost:7001</span><br></pre></td></tr></table></figure>
+
+<h1 id="写第一个-api-接口"><a href="#写第一个-api-接口" class="headerlink" title="写第一个 api 接口"></a>写第一个 api 接口</h1><h2 id="安装-vscode-扩展"><a href="#安装-vscode-扩展" class="headerlink" title="安装 vscode 扩展"></a>安装 vscode 扩展</h2><h2 id="创建控制器"><a href="#创建控制器" class="headerlink" title="创建控制器"></a>创建控制器</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> index() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; ctx &#125; = <span class="keyword">this</span>;</span><br><span class="line">    <span class="comment">// 获取路由get传值参数（路由:id）</span></span><br><span class="line">    ctx.params;</span><br><span class="line">    <span class="comment">// 获取url的问号get传值参数</span></span><br><span class="line">    ctx.query;</span><br><span class="line">    <span class="comment">// 响应</span></span><br><span class="line">    ctx.body = <span class="string">'响应'</span>;</span><br><span class="line">    <span class="comment">// 状态码</span></span><br><span class="line">	ctx.status = <span class="number">201</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编写路由"><a href="#编写路由" class="headerlink" title="编写路由"></a>编写路由</h2><h3 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// router.js</span></span><br><span class="line">router.get(<span class="string">'/admin/:id'</span>, controller.admin.index);</span><br><span class="line"></span><br><span class="line"><span class="comment">// controller</span></span><br><span class="line"><span class="keyword">async</span> index() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; ctx &#125; = <span class="keyword">this</span>;</span><br><span class="line">    <span class="comment">// 获取路由get传值参数（路由:id）</span></span><br><span class="line">    ctx.params;</span><br><span class="line">    <span class="comment">// 获取url的问号get传值参数</span></span><br><span class="line">    ctx.query;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="资源路由"><a href="#资源路由" class="headerlink" title="资源路由"></a>资源路由</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/router.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">app</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; router, controller &#125; = app;</span><br><span class="line">  router.resources(<span class="string">"posts"</span>, <span class="string">"/api/posts"</span>, controller.posts);</span><br><span class="line">  <span class="comment">// app/controller/v1/users.js</span></span><br><span class="line">  router.resources(<span class="string">"users"</span>, <span class="string">"/api/v1/users"</span>, controller.v1.users);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码就在 <code>/posts</code> 路径上部署了一组 CRUD 路径结构，对应的 Controller 为 <code>app/controller/posts.js</code> 接下来， 你只需要在 <code>posts.js</code> 里面实现对应的函数就可以了。</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Path</th>
+<th>Route Name</th>
+<th>Controller.Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GET</td>
+<td>/posts</td>
+<td>posts</td>
+<td>app.controllers.posts.index</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/posts/new</td>
+<td>new_post</td>
+<td>app.controllers.posts.new</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/posts/:id</td>
+<td>post</td>
+<td>app.controllers.posts.show</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/posts/:id/edit</td>
+<td>edit_post</td>
+<td>app.controllers.posts.edit</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/posts</td>
+<td>posts</td>
+<td>app.controllers.posts.create</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/posts/:id</td>
+<td>post</td>
+<td>app.controllers.posts.update</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/posts/:id</td>
+<td>post</td>
+<td>app.controllers.posts.destroy</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/controller/posts.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 列表页</span></span><br><span class="line">exports.index = <span class="keyword">async</span> () =&gt; &#123;&#125;;</span><br><span class="line"><span class="comment">// 新增表单页</span></span><br><span class="line">exports.new = <span class="keyword">async</span> () =&gt; &#123;&#125;;</span><br><span class="line"><span class="comment">// 新增逻辑</span></span><br><span class="line">exports.create = <span class="keyword">async</span> () =&gt; &#123;&#125;;</span><br><span class="line"><span class="comment">// 详情页</span></span><br><span class="line">exports.show = <span class="keyword">async</span> () =&gt; &#123;&#125;;</span><br><span class="line"><span class="comment">// 编辑表单页</span></span><br><span class="line">exports.edit = <span class="keyword">async</span> () =&gt; &#123;&#125;;</span><br><span class="line"><span class="comment">// 更新逻辑</span></span><br><span class="line">exports.update = <span class="keyword">async</span> () =&gt; &#123;&#125;;</span><br><span class="line"><span class="comment">// 删除逻辑</span></span><br><span class="line">exports.destroy = <span class="keyword">async</span> () =&gt; &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="路由分组"><a href="#路由分组" class="headerlink" title="路由分组"></a>路由分组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/router.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">app</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">require</span>(<span class="string">"./router/news"</span>)(app);</span><br><span class="line">  <span class="built_in">require</span>(<span class="string">"./router/admin"</span>)(app);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// app/router/news.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">app</span>) =&gt;</span> &#123;</span><br><span class="line">  app.router.get(<span class="string">"/news/list"</span>, app.controller.news.list);</span><br><span class="line">  app.router.get(<span class="string">"/news/detail"</span>, app.controller.news.detail);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// app/router/admin.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">app</span>) =&gt;</span> &#123;</span><br><span class="line">  app.router.get(<span class="string">"/admin/user"</span>, app.controller.admin.user);</span><br><span class="line">  app.router.get(<span class="string">"/admin/log"</span>, app.controller.admin.log);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="关闭-csrf-开启跨域"><a href="#关闭-csrf-开启跨域" class="headerlink" title="关闭 csrf 开启跨域"></a>关闭 csrf 开启跨域</h1><p>文档：<a href="https://www.npmjs.com/package/egg-cors" target="_blank" rel="noopener">https://www.npmjs.com/package/egg-cors</a></p>
+<ul>
+<li>安装 npm i egg-cors –save</li>
+<li>配置插件</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#123;app_root&#125;/config/plugin.js</span></span><br><span class="line">exports.cors = &#123;</span><br><span class="line">  enable: <span class="literal">true</span>,</span><br><span class="line">  package: <span class="string">"egg-cors"</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>config / config.default.js 目录下配置</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">config.security = &#123;</span><br><span class="line">  <span class="comment">// 关闭 csrf</span></span><br><span class="line">  csrf: &#123;</span><br><span class="line">    enable: <span class="literal">false</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 跨域白名单</span></span><br><span class="line">  domainWhiteList: [<span class="string">"http://localhost:3000"</span>],</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 允许跨域的方法</span></span><br><span class="line">config.cors = &#123;</span><br><span class="line">  origin: <span class="string">"*"</span>,</span><br><span class="line">  allowMethods: <span class="string">"GET, PUT, POST, DELETE, PATCH"</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="配置和创建迁移文件"><a href="#配置和创建迁移文件" class="headerlink" title="配置和创建迁移文件"></a>配置和创建迁移文件</h2><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ol>
+<li>安装并配置<a href="https://github.com/eggjs/egg-sequelize" target="_blank" rel="noopener">egg-sequelize</a>插件（它会辅助我们将定义好的 Model 对象加载到 app 和 ctx 上）和<a href="https://github.com/sidorares/node-mysql2" target="_blank" rel="noopener">mysql2</a>模块：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save egg-sequelize mysql2</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在<code>config/plugin.js</code>中引入 egg-sequelize 插件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.sequelize &#x3D; &#123;</span><br><span class="line">  enable: true,</span><br><span class="line">  package: &#39;egg-sequelize&#39;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在<code>config/config.default.js</code></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">config.sequelize = &#123;</span><br><span class="line">  dialect: <span class="string">"mysql"</span>,</span><br><span class="line">  host: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">  username: <span class="string">"root"</span>,</span><br><span class="line">  password: <span class="string">"root"</span>,</span><br><span class="line">  port: <span class="number">3306</span>,</span><br><span class="line">  database: <span class="string">"eggapi"</span>,</span><br><span class="line">  <span class="comment">// 中国时区</span></span><br><span class="line">  timezone: <span class="string">"+08:00"</span>,</span><br><span class="line">  define: &#123;</span><br><span class="line">    <span class="comment">// 取消数据表名复数</span></span><br><span class="line">    freezeTableName: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 自动写入时间戳 created_at updated_at</span></span><br><span class="line">    timestamps: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 字段生成软删除时间戳 deleted_at</span></span><br><span class="line">    paranoid: <span class="literal">true</span>,</span><br><span class="line">    createdAt: <span class="string">"created_at"</span>,</span><br><span class="line">    updatedAt: <span class="string">"updated_at"</span>,</span><br><span class="line">    deletedAt: <span class="string">"deleted_at"</span>,</span><br><span class="line">    <span class="comment">// 所有驼峰命名格式化</span></span><br><span class="line">    underscored: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>sequelize 提供了<a href="https://github.com/sequelize/cli" target="_blank" rel="noopener">sequelize-cli</a>工具来实现<a href="http://docs.sequelizejs.com/manual/tutorial/migrations.html" target="_blank" rel="noopener">Migrations</a>，我们也可以在 egg 项目中引入 sequelize-cli。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev sequelize-cli</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>egg 项目中，我们希望将所有数据库 Migrations 相关的内容都放在<code>database</code>目录下，所以我们在项目根目录下新建一个<code>.sequelizerc</code>配置文件：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  config: path.join(__dirname, <span class="string">"database/config.json"</span>),</span><br><span class="line">  <span class="string">"migrations-path"</span>: path.join(__dirname, <span class="string">"database/migrations"</span>),</span><br><span class="line">  <span class="string">"seeders-path"</span>: path.join(__dirname, <span class="string">"database/seeders"</span>),</span><br><span class="line">  <span class="string">"models-path"</span>: path.join(__dirname, <span class="string">"app/model"</span>),</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>初始化 Migrations 配置文件和目录</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx sequelize init:config</span><br><span class="line">npx sequelize init:migrations</span><br><span class="line"><span class="comment">// npx sequelize init:models</span></span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>行完后会生成<code>database/config.json</code>文件和<code>database/migrations</code>目录，我们修改一下<code>database/config.json</code>中的内容，将其改成我们项目中使用的数据库配置：</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"development"</span>: &#123;</span><br><span class="line">    <span class="attr">"username"</span>: <span class="string">"root"</span>,</span><br><span class="line">    <span class="attr">"password"</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">"database"</span>: <span class="string">"eggapi"</span>,</span><br><span class="line">    <span class="attr">"host"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"dialect"</span>: <span class="string">"mysql"</span>,</span><br><span class="line">    <span class="attr">"timezone"</span>: <span class="string">"+08:00"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>创建数据库</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx sequelize db:create</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建数据迁移表"><a href="#创建数据迁移表" class="headerlink" title="创建数据迁移表"></a>创建数据迁移表</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx sequelize migration:generate --name=init-user</span><br></pre></td></tr></table></figure>
+
+<p>1.执行完命令后，会在 database / migrations / 目录下生成数据表迁移文件，然后定义</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  up: <span class="keyword">async</span> (queryInterface, Sequelize) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; INTEGER, STRING, DATE, ENUM &#125; = Sequelize;</span><br><span class="line">    <span class="comment">// 创建表</span></span><br><span class="line">    <span class="keyword">await</span> queryInterface.createTable(<span class="string">"user"</span>, &#123;</span><br><span class="line">      id: &#123; <span class="attr">type</span>: INTEGER(<span class="number">20</span>).UNSIGNED, <span class="attr">primaryKey</span>: <span class="literal">true</span>, <span class="attr">autoIncrement</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">      username: &#123;</span><br><span class="line">        type: STRING(<span class="number">30</span>),</span><br><span class="line">        allowNull: <span class="literal">false</span>,</span><br><span class="line">        defaultValue: <span class="string">""</span>,</span><br><span class="line">        comment: <span class="string">"用户名称"</span>,</span><br><span class="line">        unique: <span class="literal">true</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      password: &#123; <span class="attr">type</span>: STRING(<span class="number">200</span>), <span class="attr">allowNull</span>: <span class="literal">false</span>, <span class="attr">defaultValue</span>: <span class="string">""</span> &#125;,</span><br><span class="line">      avatar_url: &#123; <span class="attr">type</span>: STRING(<span class="number">200</span>), <span class="attr">allowNull</span>: <span class="literal">true</span>, <span class="attr">defaultValue</span>: <span class="string">""</span> &#125;,</span><br><span class="line">      sex: &#123;</span><br><span class="line">        type: ENUM,</span><br><span class="line">        values: [<span class="string">"男"</span>, <span class="string">"女"</span>, <span class="string">"保密"</span>],</span><br><span class="line">        allowNull: <span class="literal">true</span>,</span><br><span class="line">        defaultValue: <span class="string">"男"</span>,</span><br><span class="line">        comment: <span class="string">"用户性别"</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      created_at: DATE,</span><br><span class="line">      updated_at: DATE,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  down: <span class="keyword">async</span> (queryInterface) =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> queryInterface.dropTable(<span class="string">"user"</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行 migrate 进行数据库变更</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 升级数据库</span></span><br><span class="line">npx sequelize db:migrate</span><br><span class="line"><span class="comment"># 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更</span></span><br><span class="line"><span class="comment"># npx sequelize db:migrate:undo</span></span><br><span class="line"><span class="comment"># 可以通过 `db:migrate:undo:all` 回退到初始状态</span></span><br><span class="line"><span class="comment"># npx sequelize db:migrate:undo:all</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h1><h3 id="创建模型"><a href="#创建模型" class="headerlink" title="创建模型"></a>创建模型</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app / model / user.js</span></span><br><span class="line"></span><br><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">app</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; STRING, INTEGER, DATE &#125; = app.Sequelize;</span><br><span class="line">  <span class="comment">// 配置（重要：一定要配置详细，一定要！！！）</span></span><br><span class="line">  <span class="keyword">const</span> User = app.model.define(</span><br><span class="line">    <span class="string">"user"</span>,</span><br><span class="line">    &#123;</span><br><span class="line">      id: &#123; <span class="attr">type</span>: INTEGER(<span class="number">20</span>).UNSIGNED, <span class="attr">primaryKey</span>: <span class="literal">true</span>, <span class="attr">autoIncrement</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">      username: &#123;</span><br><span class="line">        type: STRING(<span class="number">30</span>),</span><br><span class="line">        allowNull: <span class="literal">false</span>,</span><br><span class="line">        defaultValue: <span class="string">""</span>,</span><br><span class="line">        comment: <span class="string">"用户名称"</span>,</span><br><span class="line">        unique: <span class="literal">true</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      password: &#123; <span class="attr">type</span>: STRING(<span class="number">200</span>), <span class="attr">allowNull</span>: <span class="literal">false</span>, <span class="attr">defaultValue</span>: <span class="string">""</span> &#125;,</span><br><span class="line">      avatar_url: &#123; <span class="attr">type</span>: STRING(<span class="number">200</span>), <span class="attr">allowNull</span>: <span class="literal">true</span>, <span class="attr">defaultValue</span>: <span class="string">""</span> &#125;,</span><br><span class="line">      sex: &#123;</span><br><span class="line">        type: ENUM,</span><br><span class="line">        values: [<span class="string">"男"</span>, <span class="string">"女"</span>, <span class="string">"保密"</span>],</span><br><span class="line">        allowNull: <span class="literal">true</span>,</span><br><span class="line">        defaultValue: <span class="string">"男"</span>,</span><br><span class="line">        comment: <span class="string">"用户性别"</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      created_at: DATE,</span><br><span class="line">      updated_at: DATE,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      timestamps: <span class="literal">true</span>, <span class="comment">// 是否自动写入时间戳</span></span><br><span class="line">      tableName: <span class="string">"user"</span>, <span class="comment">// 自定义数据表名称</span></span><br><span class="line">    &#125;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> User;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这个 Model 就可以在 Controller 和 Service 中通过 <code>app.model.User</code> 或者 <code>ctx.model.User</code> 访问到了，例如我们编写 <code>app/controller/user.js</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/controller/user.js</span></span><br><span class="line"><span class="keyword">const</span> Controller = <span class="built_in">require</span>(<span class="string">"egg"</span>).Controller;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toInt</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> str === <span class="string">"number"</span>) <span class="keyword">return</span> str;</span><br><span class="line">  <span class="keyword">if</span> (!str) <span class="keyword">return</span> str;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">parseInt</span>(str, <span class="number">10</span>) || <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">  <span class="keyword">async</span> index() &#123;</span><br><span class="line">    <span class="keyword">const</span> ctx = <span class="keyword">this</span>.ctx;</span><br><span class="line">    <span class="keyword">let</span> keyword = <span class="keyword">this</span>.ctx.params.keyword;</span><br><span class="line">    <span class="keyword">let</span> Op = <span class="keyword">this</span>.app.Sequelize.Op;</span><br><span class="line">    ctx.body = <span class="keyword">await</span> ctx.model.User.findAll(&#123;</span><br><span class="line">      where: &#123;</span><br><span class="line">        id: &#123;</span><br><span class="line">          [Op.gt]: <span class="number">6</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        username: &#123;</span><br><span class="line">          [Op.like]: <span class="string">"%"</span> + keyword + <span class="string">"%"</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">      attributes: [<span class="string">"id"</span>, <span class="string">"username"</span>, <span class="string">"sex"</span>],</span><br><span class="line">      order: [[<span class="string">"id"</span>, <span class="string">"DESC"</span>]],</span><br><span class="line">      limit: toInt(ctx.query.limit),</span><br><span class="line">      offset: toInt(ctx.query.offset),</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> show() &#123;</span><br><span class="line">    <span class="keyword">let</span> id = <span class="built_in">parseInt</span>(<span class="keyword">this</span>.ctx.params.id);</span><br><span class="line">    <span class="comment">// 通过主键查询单个数据</span></span><br><span class="line">    <span class="comment">// let detail = await this.app.model.User.findByPk(id);</span></span><br><span class="line">    <span class="comment">// if (!detail) &#123;</span></span><br><span class="line">    <span class="comment">//     return this.ctx.body = &#123;</span></span><br><span class="line">    <span class="comment">//         msg: "fail",</span></span><br><span class="line">    <span class="comment">//         data: "用户不存在"</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查询单个</span></span><br><span class="line">    <span class="keyword">let</span> detail = <span class="keyword">await</span> <span class="keyword">this</span>.app.model.User.findOne(&#123;</span><br><span class="line">      where: &#123;</span><br><span class="line">        id,</span><br><span class="line">        sex: <span class="string">"女"</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.ctx.body = &#123;</span><br><span class="line">      msg: <span class="string">"ok"</span>,</span><br><span class="line">      data: detail,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> create() &#123;</span><br><span class="line">    <span class="keyword">const</span> ctx = <span class="keyword">this</span>.ctx;</span><br><span class="line">    <span class="keyword">const</span> &#123; name, age &#125; = ctx.request.body;</span><br><span class="line">    <span class="comment">// 创建单条记录</span></span><br><span class="line">    <span class="keyword">const</span> user = <span class="keyword">await</span> ctx.model.User.create(&#123; name, age &#125;);</span><br><span class="line">    <span class="comment">// 批量创建</span></span><br><span class="line">    <span class="keyword">await</span> ctx.model.User.bulkCreate([</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">"第一个"</span>,</span><br><span class="line">        age: <span class="number">15</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">"第二个"</span>,</span><br><span class="line">        age: <span class="number">15</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">"第三个"</span>,</span><br><span class="line">        age: <span class="number">15</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    ]);</span><br><span class="line">    ctx.status = <span class="number">201</span>;</span><br><span class="line">    ctx.body = user;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> update() &#123;</span><br><span class="line">    <span class="keyword">const</span> ctx = <span class="keyword">this</span>.ctx;</span><br><span class="line">    <span class="keyword">const</span> id = toInt(ctx.params.id);</span><br><span class="line">    <span class="keyword">const</span> user = <span class="keyword">await</span> ctx.model.User.findByPk(id);</span><br><span class="line">    <span class="keyword">if</span> (!user) &#123;</span><br><span class="line">      ctx.status = <span class="number">404</span>;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> &#123; name, age &#125; = ctx.request.body;</span><br><span class="line">    <span class="keyword">await</span> user.update(&#123; name, age &#125;);</span><br><span class="line">    ctx.body = user;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> destroy() &#123;</span><br><span class="line">    <span class="keyword">const</span> ctx = <span class="keyword">this</span>.ctx;</span><br><span class="line">    <span class="keyword">const</span> id = toInt(ctx.params.id);</span><br><span class="line">    <span class="keyword">const</span> user = <span class="keyword">await</span> ctx.model.User.findByPk(id);</span><br><span class="line">    <span class="keyword">if</span> (!user) &#123;</span><br><span class="line">      ctx.status = <span class="number">404</span>;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> user.destroy();</span><br><span class="line">    ctx.status = <span class="number">200</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = UserController;</span><br></pre></td></tr></table></figure>
+
+<p>最后我们将这个 controller 挂载到路由上：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/router.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">app</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; router, controller &#125; = app;</span><br><span class="line">  router.resources(<span class="string">"user"</span>, <span class="string">"/user"</span>, controller.user);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>针对 <code>users</code> 表的 CURD 操作的接口就开发完了</p>
+<h1 id="错误和异常处理"><a href="#错误和异常处理" class="headerlink" title="错误和异常处理"></a>错误和异常处理</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/middleware/error_handler.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">option, app</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">errorHandler</span>(<span class="params">ctx, next</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">await</span> next();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">      <span class="comment">// 所有的异常都在 app 上触发一个 error 事件，框架会记录一条错误日志</span></span><br><span class="line">      ctx.app.emit(<span class="string">"error"</span>, err, ctx);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">const</span> status = err.status || <span class="number">500</span>;</span><br><span class="line">      <span class="comment">// 生产环境时 500 错误的详细错误内容不返回给客户端，因为可能包含敏感信息</span></span><br><span class="line">      <span class="keyword">const</span> error =</span><br><span class="line">        status === <span class="number">500</span> &amp;&amp; ctx.app.config.env === <span class="string">"prod"</span></span><br><span class="line">          ? <span class="string">"Internal Server Error"</span></span><br><span class="line">          : err.message;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 从 error 对象上读出各个属性，设置到响应中</span></span><br><span class="line">      ctx.body = &#123; error &#125;;</span><br><span class="line">      <span class="keyword">if</span> (status === <span class="number">422</span>) &#123;</span><br><span class="line">        ctx.body.detail = err.errors;</span><br><span class="line">      &#125;</span><br><span class="line">      ctx.status = status;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">config.middleware = [<span class="string">'errorHandler'</span>];</span><br><span class="line"></span><br><span class="line">config.errorHandler = &#123;</span><br><span class="line">    ceshi: <span class="number">123</span>,</span><br><span class="line">    <span class="comment">// 通用配置（以下是重点）</span></span><br><span class="line">    enable:<span class="literal">true</span>, <span class="comment">// 控制中间件是否开启。</span></span><br><span class="line">    match:<span class="string">'/news'</span>, <span class="comment">// 设置只有符合某些规则的请求才会经过这个中间件（匹配路由）</span></span><br><span class="line">    ignore:<span class="string">'/shop'</span> <span class="comment">// 设置符合某些规则的请求不经过这个中间件。</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        注意：</span></span><br><span class="line"><span class="comment">        1. match 和 ignore 不允许同时配置</span></span><br><span class="line"><span class="comment">        2. 例如：match:'/news'，只要包含/news的任何页面都生效</span></span><br><span class="line"><span class="comment">        **/</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// match 和 ignore 支持多种类型的配置方式：字符串、正则、函数（推荐）</span></span><br><span class="line">    match(ctx) &#123;</span><br><span class="line">        <span class="comment">// 只有 ios 设备才开启</span></span><br><span class="line">        <span class="keyword">const</span> reg = <span class="regexp">/iphone|ipad|ipod/i</span>;</span><br><span class="line">        <span class="keyword">return</span> reg.test(ctx.get(<span class="string">'user-agent'</span>));</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="参数验证"><a href="#参数验证" class="headerlink" title="参数验证"></a>参数验证</h1><p><a href="https://www.npmjs.com/package/egg-valparams" target="_blank" rel="noopener">https://www.npmjs.com/package/egg-valparams</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i egg-valparams --save</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// config/plugin.js</span></span><br><span class="line">valparams : &#123;</span><br><span class="line">  enable : <span class="literal">true</span>,</span><br><span class="line">  package: <span class="string">'egg-valparams'</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// config/config.default.js</span></span><br><span class="line">config.valparams = &#123;</span><br><span class="line">    locale    : <span class="string">'zh-cn'</span>,</span><br><span class="line">    throwError: <span class="literal">false</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">XXXController</span> <span class="keyword">extends</span> <span class="title">app</span>.<span class="title">Controller</span> </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">async</span> XXX() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; ctx &#125; = <span class="keyword">this</span>;</span><br><span class="line">    ctx.validate(&#123;</span><br><span class="line">      system: &#123;</span><br><span class="line">        type: <span class="string">"string"</span>,</span><br><span class="line">        required: <span class="literal">false</span>,</span><br><span class="line">        defValue: <span class="string">"account"</span>,</span><br><span class="line">        desc: <span class="string">"系统名称"</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      token: &#123; <span class="attr">type</span>: <span class="string">"string"</span>, <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">desc</span>: <span class="string">"token 验证"</span> &#125;,</span><br><span class="line">      redirect: &#123; <span class="attr">type</span>: <span class="string">"string"</span>, <span class="attr">required</span>: <span class="literal">false</span>, <span class="attr">desc</span>: <span class="string">"登录跳转"</span> &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// if (config.throwError === false)</span></span><br><span class="line">    <span class="keyword">if</span> (ctx.paramErrors) &#123;</span><br><span class="line">      <span class="comment">// get error infos from `ctx.paramErrors`;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> params = ctx.params;</span><br><span class="line">    <span class="keyword">let</span> &#123; query, body &#125; = ctx.request;</span><br><span class="line">    <span class="comment">// ctx.params        = validater.ret.params;</span></span><br><span class="line">    <span class="comment">// ctx.request.query = validater.ret.query;</span></span><br><span class="line">    <span class="comment">// ctx.request.body  = validater.ret.body;</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    ctx.body = query;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        Donate
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>Copyright： </strong>
+              Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/gets/egg%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+  
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'monsterid',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2020
+        <i class="ri-heart-fill heart_icon"></i> 钱开致
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="simplett"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="http://shenyu-vip.lofter.com" target="_blank" rel="noopener">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+
+<!-- 复制 -->
+
+  
+<link rel="stylesheet" href="/css/clipboard.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+    
+  </div>
+</body>
+
+</html>
